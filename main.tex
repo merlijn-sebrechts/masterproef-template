@@ -1,13 +1,12 @@
-%
 % Master thesis template for Ghent University (2021)
 %
 %
 %  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%  !!  MAKE SURE TO SET lualatex OR xelatex AS LATEX ENGINE  !!
+%  !!        MAKE SURE TO SET XeLaTex AS LATEX ENGINE        !!
 %  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 %  !! For overleaf:                                          !!
 %  !!     1. click gear icon in top right                    !!
-%  !!     2. select `lualatex` in "latex engine"             !!
+%  !!     2. select `XeLaTex` in "latex engine"              !!
 %  !!     3. click "save project settings"                   !!
 %  !!                                                        !!
 %  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -18,20 +17,22 @@
 %    2017         Adapted to master thesis by Jerico Moeyersons
 %    2018         Cleanup by Merlijn Sebrechts
 %    2021         Update by Marleen Denert and Merlijn Sebrechts with feedback from Leen Pollefliet
-%    2022         Update by Merlijn Sebrechts
+%    2022, 2023   Updates by Merlijn Sebrechts
 %
 %  Latest version
 %    https://github.com/galgalesh/masterproef-template
 %
 
 % Note: remove `openany` for printed version
-\documentclass[11pt,a4paper,openany,dutch,english]{book}
+\documentclass[12pt,a4paper,openany,dutch,english]{extbook}
 \usepackage[a4paper,includeheadfoot,margin=2.50cm]{geometry}
 
 
+% By default, LaTeX tries to stretch whitespace between paragraphs on a page in order to reduce whitespace at the end of the page. This sometimes gives ugly results. The following command disables that stretching.
+\raggedbottom % Don't reduce whitespace at the end of a page.
 
+\renewcommand{\baselinestretch}{1.2}  % stretch horizontal space between everything by 20%
 
-\renewcommand{\baselinestretch}{1.2}  % stretch horizontal space between everything
 
 \usepackage[hyphens]{url} % Break line on hyphens in long urls
 \usepackage{graphicx}
