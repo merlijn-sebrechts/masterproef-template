@@ -18,9 +18,10 @@
 %    2018         Cleanup by Merlijn Sebrechts
 %    2021         Update by Marleen Denert and Merlijn Sebrechts with feedback from Leen Pollefliet
 %    2022, 2023   Updates by Merlijn Sebrechts
+%    2024         Switch to English as first language
 %
 %  Latest version
-%    https://github.com/galgalesh/masterproef-template
+%    https://github.com/merlijn-sebrechts/masterproef-template
 %
 
 % Note: remove `openany` for printed version
@@ -44,7 +45,6 @@
 \usepackage{subcaption}
 \usepackage[toc,page]{appendix}
 \usepackage{fontspec}
-\usepackage[T1]{fontenc}
 
 % Don't indent table of contents, list of figures, and list of tables
 \usepackage{tocloft}
@@ -81,7 +81,7 @@
 \usepackage{color}
 \definecolor{chaptergrey}{rgb}{0.5,0.5,0.5}
 \usepackage[explicit, pagestyles]{titlesec}
-\titleformat{\chapter}[display]{\bfseries}{\color{chaptergrey}\fontfamily{pbk}\fontsize{80pt}{100pt}\selectfont\thechapter}{0pt}{\Huge #1}
+\titleformat{\chapter}[display]{\bfseries}{\color{chaptergrey}\fontfamily{lmr}\fontsize{80pt}{100pt}\selectfont\thechapter}{0pt}{\Huge #1}
 \titlespacing*{\chapter}{0pt}{-80pt}{30pt}
 
 
@@ -110,9 +110,9 @@
 
 % We use the package `minted` for modern code highlighting.
 \usepackage[newfloat,chapter]{minted}
-\SetupFloatingEnvironment{listing}{name=Codefragment, listname=Lijst van codefragmenten}
-%\SetupFloatingEnvironment{listing}{name=Code Fragment, listname=List of Code Fragments} % lang:english
-
+%\SetupFloatingEnvironment{listing}{name=Codefragment, listname=Lijst van codefragmenten} % lang:dutch
+\SetupFloatingEnvironment{listing}{name=Code Fragment, listname=List of Code Fragments} % lang:english
+\usemintedstyle{pastie} % for other highlighting color schemes, see https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Reference_guide
 
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref}
@@ -142,20 +142,21 @@
 % Support for splitting Dutch words correctly
 %
 \usepackage{polyglossia}
-\setdefaultlanguage[babelshorthands=true]{dutch} % lang:dutch
-%\setmainlanguage{english}                       % lang:english
+%\setdefaultlanguage[babelshorthands=true]{dutch} % lang:dutch
+\setmainlanguage{english}                       % lang:english
 
 % Manually specify additional hypnations for words
 %
 % Translated strings. If these aren't set, the English words are used.
 %
-\addto\captionsenglish{\renewcommand{\contentsname}{Inhoudsopgave}}   % lang:dutch
+
+% \addto\captionsenglish{\renewcommand{\contentsname}{Inhoudsopgave}}   % lang:dutch
 
 % Fix error "Package hyperref Warning: The anchor of a bookmark and its parent's must not be the same. Added a new anchor on ..."
 \newcommand{\sectionbreak}{\phantomsection}
 
-\renewcommand\appendixtocname{Bijlagen}                     % lang:dutch
-\renewcommand\appendixpagename{Bijlagen}                    % lang:dutch
+% \renewcommand\appendixtocname{Bijlagen}                     % lang:dutch
+% \renewcommand\appendixpagename{Bijlagen}                    % lang:dutch
 
 
 \usepackage[toc,acronym]{glossaries}  % for list of acronyms
@@ -179,14 +180,15 @@
 % Download the cover sheet from Plato
 \includepdf{cover-sheet.pdf}
 
-\include{chapters/1_acknowledgment}
-\include{chapters/2_disclaimer}
-\include{chapters/3_abstract}
-\include{chapters/4_extended_abstract}
+\include{chapters/1_confidentiality.tex}
+\include{chapters/2_acknowledgment.tex}
+\include{chapters/3_disclaimer-oral-exam.tex}
+\include{chapters/4_abstract.tex}
+\include{chapters/5_extended_abstract.tex}
 \tableofcontents\newpage
 \listoffigures\newpage
 \listoftables\newpage
-\include{chapters/5_list_of_acronyms}
+\include{chapters/6_list_of_acronyms.tex}
 \listoflistings\newpage
 
 %
@@ -195,15 +197,19 @@
 %
 \mainmatter
 \pagestyle{fancy} % Use header
-\include{chapters/6_introduction}
-\include{chapters/7_chapter_2}
-\include{chapters/7_chapter_3}
-\include{chapters/7_chapter_4}
-\include{chapters/8_conclusion}
-\include{chapters/9_bibliography}
+\include{chapters/7_introduction.tex}
+\include{chapters/8_chapter_1.tex}
+\include{chapters/8_chapter_2.tex}
+\include{chapters/8_chapter_3.tex}
+\include{chapters/8_chapter_4.tex}
+\include{chapters/9_conclusion.tex}
+\include{chapters/10_future-work.tex}
+\include{chapters/11_ethical-reflection.tex}
+\include{chapters/12_bibliography.tex}
+\include{chapters/13_appendices.tex}
 
 \pagestyle{numberless} 
 \pagestyle{empty}
-\include{chapters/10_appendices}
+\include{chapters/12_appendices.tex}
 
 \end{document}
